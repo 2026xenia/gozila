@@ -1,0 +1,532 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="探索哥吉拉電影宇宙，認識怪獸之王的起源、經典電影與歷史。">
+<title>GODZILLA | 哥吉拉電影宇宙</title>
+
+<style>
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: #0b0e13;
+  color: #f2f2f2;
+  font-family: "Microsoft JhengHei", Arial, sans-serif;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 20px 7%;
+  background: #10141b;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid #29303a;
+}
+
+.logo {
+  color: #ff514e;
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+nav a {
+  color: #ddd;
+  text-decoration: none;
+  margin-left: 18px;
+  font-size: 14px;
+}
+
+nav a:hover { color: #ff514e; }
+
+.hero {
+  min-height: 570px;
+  display: flex;
+  align-items: center;
+  padding: 70px 9%;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 80% 70%, #a72e24 0%, transparent 42%),
+    linear-gradient(125deg, #090b10, #222c37 65%, #491f20);
+}
+
+.hero::after {
+  content: "GODZILLA";
+  position: absolute;
+  bottom: -35px;
+  right: -12px;
+  font-size: clamp(90px, 18vw, 280px);
+  font-weight: 900;
+  color: #ffffff08;
+  pointer-events: none;
+}
+
+.hero-content {
+  max-width: 700px;
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow {
+  color: #ff6560;
+  letter-spacing: 4px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: clamp(55px, 10vw, 110px);
+  margin: 10px 0;
+  letter-spacing: -3px;
+  line-height: 1;
+}
+
+h1 span { color: #f04b46; }
+
+.hero p {
+  color: #d0d2d5;
+  font-size: 19px;
+  line-height: 2;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 15px 30px;
+  background: #ca3835;
+  color: white;
+  text-decoration: none;
+  border: 0;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.button:hover {
+  background: #ff5c55;
+  transform: translateY(-3px);
+}
+
+section {
+  padding: 85px 8%;
+  max-width: 1300px;
+  margin: auto;
+}
+
+.section-title {
+  font-size: clamp(28px, 5vw, 40px);
+  margin-bottom: 12px;
+}
+
+.section-title span { color: #ff514e; }
+
+.line {
+  width: 65px;
+  height: 4px;
+  background: #ff514e;
+  margin-bottom: 28px;
+}
+
+.description {
+  color: #bec5ce;
+  line-height: 2.1;
+  font-size: 17px;
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  margin-top: 35px;
+}
+
+.fact {
+  background: #161d26;
+  border-left: 3px solid #e34943;
+  padding: 25px;
+  border-radius: 5px;
+}
+
+.fact strong {
+  display: block;
+  color: #ff635d;
+  font-size: 29px;
+  margin-bottom: 12px;
+}
+
+.fact span { color: #c5cad0; }
+
+.movies {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+  margin-top: 35px;
+}
+
+.movie {
+  background: #171c24;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: .3s;
+  border: 1px solid #2c3540;
+}
+
+.movie:hover {
+  transform: translateY(-8px);
+  border-color: #e34843;
+}
+
+.poster {
+  height: 220px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 65px;
+  background: linear-gradient(140deg, #3b1519, #101820);
+  position: relative;
+}
+
+.poster::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 5px;
+  background: #d9423d;
+}
+
+.movie-content { padding: 24px; }
+
+.year {
+  color: #ff625c;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.movie h3 {
+  margin: 12px 0;
+  font-size: 21px;
+}
+
+.movie p {
+  color: #bbc2cc;
+  line-height: 1.9;
+  font-size: 14px;
+}
+
+.movie a {
+  color: #ff7670;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.timeline {
+  border-left: 3px solid #bd3e39;
+  padding-left: 28px;
+}
+
+.event {
+  margin-bottom: 35px;
+  position: relative;
+}
+
+.event::before {
+  content: "";
+  position: absolute;
+  left: -37px;
+  top: 5px;
+  width: 15px;
+  height: 15px;
+  background: #ff514e;
+  border-radius: 50%;
+}
+
+.event h3 { color: #ff6862; }
+.event p { color: #c4cad2; line-height: 1.8; }
+
+.trailer {
+  max-width: 900px;
+  margin: 30px auto 0;
+  aspect-ratio: 16 / 9;
+}
+
+.trailer iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 12px;
+}
+
+.interactive {
+  text-align: center;
+  background: radial-gradient(#4c1718, #11151c 70%);
+  border-radius: 20px;
+  padding: 65px 20px;
+}
+
+#roar {
+  margin-top: 25px;
+  min-height: 40px;
+  font-size: 23px;
+  color: #ff716a;
+  font-weight: bold;
+}
+
+.shake { animation: shake .45s; }
+
+@keyframes shake {
+  0%,100% { transform: translateX(0); }
+  25% { transform: translateX(-9px); }
+  50% { transform: translateX(9px); }
+  75% { transform: translateX(-5px); }
+}
+
+footer {
+  text-align: center;
+  background: #080a0e;
+  padding: 32px 20px;
+  color: #98a1ad;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+@media(max-width: 600px) {
+  nav { justify-content: center; gap: 15px; }
+  nav a { margin: 0 7px; }
+  .hero { min-height: 450px; }
+  section { padding: 60px 6%; }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">GODZILLA.</div>
+  <div>
+    <a href="#about">起源</a>
+    <a href="#movies">電影</a>
+    <a href="#history">歷史</a>
+    <a href="#trailer">預告片</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-content">
+    <div class="eyebrow">THE KING OF MONSTERS</div>
+    <h1>GOD<span>ZILLA</span></h1>
+    <p>
+      怪獸之王，震撼世界。<br>
+      從1954年到現代，<br>
+      哥吉拉不只是怪獸，更是電影史上的傳奇。
+    </p>
+    <a class="button" href="#movies">探索電影宇宙 →</a>
+  </div>
+</header>
+
+<section id="about">
+  <h2 class="section-title">認識 <span>哥吉拉</span></h2>
+  <div class="line"></div>
+
+  <p class="description">
+    哥吉拉（Godzilla）是日本東寶電影公司創造的經典怪獸角色，
+    於1954年的電影《哥吉拉》中首次登場。
+    最初的哥吉拉象徵核武器與人類對未知災難的恐懼，
+    並反映戰後日本社會對核能與戰爭的思考。
+    隨著時代演進，哥吉拉逐漸從破壞城市的恐怖巨獸，
+    發展成有時保護地球、有時威脅人類的複雜角色。
+    牠巨大的身軀、背鰭以及威力強大的原子吐息，
+    已成為世界電影文化的重要象徵。
+  </p>
+
+  <div class="facts">
+    <div class="fact">
+      <strong>1954</strong>
+      <span>首次登上大銀幕</span>
+    </div>
+    <div class="fact">
+      <strong>TOHO</strong>
+      <span>日本東寶創造</span>
+    </div>
+    <div class="fact">
+      <strong>70+ 年</strong>
+      <span>跨世代怪獸傳奇</span>
+    </div>
+    <div class="fact">
+      <strong>怪獸之王</strong>
+      <span>經典稱號</span>
+    </div>
+  </div>
+</section>
+
+<section id="movies">
+  <h2 class="section-title">經典 <span>電影作品</span></h2>
+  <div class="line"></div>
+  <p class="description">
+    從日本原創作品到好萊塢怪獸宇宙，
+    一起探索哥吉拉的不同面貌。
+  </p>
+
+  <div class="movies">
+
+    <article class="movie">
+      <div class="poster">☢️</div>
+      <div class="movie-content">
+        <div class="year">1954 · 日本</div>
+        <h3>《哥吉拉》</h3>
+        <p>
+          第一部哥吉拉電影。
+          神秘巨獸襲擊日本，
+          人類必須面對一場前所未有的危機。
+        </p>
+        <a href="https://godzilla.com/" target="_blank"
+           rel="noopener noreferrer">探索官方網站 →</a>
+      </div>
+    </article>
+
+    <article class="movie">
+      <div class="poster">🦖</div>
+      <div class="movie-content">
+        <div class="year">2016 · 日本</div>
+        <h3>《正宗哥吉拉》</h3>
+        <p>
+          以現代日本面對巨大怪獸災難為核心，
+          展現政府應變與怪獸演化帶來的威脅。
+        </p>
+        <a href="https://godzilla.com/" target="_blank"
+           rel="noopener noreferrer">探索官方網站 →</a>
+      </div>
+    </article>
+
+    <article class="movie">
+      <div class="poster">🌊</div>
+      <div class="movie-content">
+        <div class="year">2023 · 日本</div>
+        <h3>《哥吉拉 -1.0》</h3>
+        <p>
+          戰後日本尚未從創傷中恢復，
+          哥吉拉的出現又帶來更深的絕望。
+          電影獲得奧斯卡最佳視覺效果獎。
+        </p>
+        <a href="https://godzilla.com/" target="_blank"
+           rel="noopener noreferrer">探索官方網站 →</a>
+      </div>
+    </article>
+
+    <article class="movie">
+      <div class="poster">⚡</div>
+      <div class="movie-content">
+        <div class="year">2024 · 美國</div>
+        <h3>《哥吉拉與金剛：新帝國》</h3>
+        <p>
+          哥吉拉與金剛再次登場，
+          面對潛藏於世界深處的強大威脅，
+          展開壯觀的巨獸冒險。
+        </p>
+        <a href="https://www.godzillaxkongmovie.com/godzillaxkong2024/"
+           target="_blank" rel="noopener noreferrer">
+           電影官方網站 →
+        </a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section id="history">
+  <h2 class="section-title">哥吉拉 <span>電影年表</span></h2>
+  <div class="line"></div>
+
+  <div class="timeline">
+    <div class="event">
+      <h3>1954｜傳奇誕生</h3>
+      <p>日本第一部《哥吉拉》電影上映。</p>
+    </div>
+    <div class="event">
+      <h3>1984｜系列重啟</h3>
+      <p>《哥吉拉》重新回歸嚴肅的災難電影風格。</p>
+    </div>
+    <div class="event">
+      <h3>2014｜怪獸宇宙</h3>
+      <p>好萊塢新版《哥吉拉》開啟傳奇影業怪獸宇宙。</p>
+    </div>
+    <div class="event">
+      <h3>2016｜正宗哥吉拉</h3>
+      <p>日本推出重新詮釋哥吉拉的電影作品。</p>
+    </div>
+    <div class="event">
+      <h3>2023｜哥吉拉 -1.0</h3>
+      <p>回到戰後日本，結合災難與人性故事。</p>
+    </div>
+    <div class="event">
+      <h3>2024｜新帝國</h3>
+      <p>哥吉拉與金剛共同面對新的巨獸威脅。</p>
+    </div>
+  </div>
+</section>
+
+<section id="trailer">
+  <h2 class="section-title">電影 <span>預告片</span></h2>
+  <div class="line"></div>
+  <p class="description">
+    觀看《哥吉拉與金剛：新帝國》官方預告片。
+  </p>
+
+  <div class="trailer">
+    <iframe
+      src="https://www.youtube.com/embed/lV1OOlGwExM"
+      title="Godzilla x Kong 官方預告片"
+      loading="lazy"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen>
+    </iframe>
+  </div>
+</section>
+
+<section>
+  <div class="interactive" id="battle">
+    <h2>⚡ 喚醒怪獸之王</h2>
+    <p class="description">
+      你有勇氣喚醒沉睡中的哥吉拉嗎？
+    </p>
+    <button class="button" onclick="atomicBreath()">
+      發動原子吐息！
+    </button>
+    <div id="roar" aria-live="polite"></div>
+  </div>
+</section>
+
+<footer>
+  <strong>GODZILLA FAN WEBSITE</strong><br>
+  哥吉拉電影介紹・非官方影迷網站<br>
+  Godzilla 角色及電影相關權利歸各權利人所有。
+</footer>
+
+<script>
+function atomicBreath() {
+  const result = document.getElementById("roar");
+  const battle = document.getElementById("battle");
+
+  result.textContent = "☢️ 轟！！！哥吉拉發動原子吐息！";
+  battle.classList.remove("shake");
+
+  void battle.offsetWidth;
+  battle.classList.add("shake");
+}
+</script>
+
+</body>
+</html>
